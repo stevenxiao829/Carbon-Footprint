@@ -66,7 +66,7 @@ electricity_emissions = EMISSION_FACTORS[country]["Electricity"] * electricity
 diet_emissions = EMISSION_FACTORS[country]["Diet"] * meals
 waste_emissions = EMISSION_FACTORS[country]["Waste"] * waste
 
-# Convert emissions to tonnes and round off to 2 decimal points
+# Convert emissions to tons and round off to 2 decimal points
 transportation_emissions = round(transportation_emissions / 1000, 2)
 electricity_emissions = round(electricity_emissions / 1000, 2)
 diet_emissions = round(diet_emissions / 1000, 2)
@@ -86,14 +86,14 @@ if st.button("Calculate CO2 Emissions"):
 
     with col3:
         st.subheader("Carbon Emissions by Category")
-        st.info(f"🚗 Transportation: {transportation_emissions} tonnes CO2 per year")
-        st.info(f"💡 Electricity: {electricity_emissions} tonnes CO2 per year")
-        st.info(f"🍽️ Diet: {diet_emissions} tonnes CO2 per year")
-        st.info(f"🗑️ Waste: {waste_emissions} tonnes CO2 per year")
+        st.info(f"🚗 Transportation: {transportation_emissions} tons CO2 per year")
+        st.info(f"💡 Electricity: {electricity_emissions} tons CO2 per year")
+        st.info(f"🍽️ Diet: {diet_emissions} tons CO2 per year")
+        st.info(f"🗑️ Waste: {waste_emissions} tons CO2 per year")
 
     with col4:
         st.subheader("Total Carbon Footprint")
-        st.success(f"🌍 Your total carbon footprint is: {total_emissions} tonnes CO2 per year")
+        st.success(f"🌍 Your total carbon footprint is: {total_emissions} tons CO2 per year")
         st.warning("In 2021, CO2 emissions per capita for India was 1.9 tons of CO2 per capita. Between 1972 and 2021, CO2 emissions per capita of India grew substantially from 0.39 to 1.9 tons of CO2 per capita rising at an increasing annual rate that reached a maximum of 9.41% in 2021")
 
 # Check if all inputs have been filled
