@@ -98,7 +98,7 @@ if st.button("Calculate CO2 Emissions"):
 
 # Check if all inputs have been filled
 if distance > 0 and electricity > 0 and meals > 0 and waste > 0:
-    prompt = """
+    prompt = f"""
             Pretend you are an expert environmentalist and lifestyle analyst.
             Provide detailed actionable suggestions to reduce my carbon footprint.
             I travel {distance} kilometers daily and my annual electricity consumption is {electricity} kWh.
