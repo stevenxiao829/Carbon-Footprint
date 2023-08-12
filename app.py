@@ -107,8 +107,6 @@ if distance > 0 and electricity > 0 and meals > 0 and waste > 0:
     )
 
 
-    # Create an empty output container
-    output_container = st.empty()
 
     # Start generating the text
     completion = palm.generate_text(
@@ -119,7 +117,7 @@ if distance > 0 and electricity > 0 and meals > 0 and waste > 0:
     )
 
     # Update the output container with the generated text
-    output_container.text(completion.result)
+    st.markdown(completion.result)
 
 else:
     st.warning("Please fill in all the inputs to generate suggestions.")
