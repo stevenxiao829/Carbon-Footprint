@@ -5,7 +5,7 @@ palm.configure(api_key='AIzaSyATRWBWwqP1AYY1gNJEHvKPKSBWorFABv8')
 
 models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
 model = models[0].name
-print(model)
+
 
 
 # Define emission factors (example values, replace with accurate data)
@@ -16,7 +16,7 @@ EMISSION_FACTORS = {
         "Diet": 1.25,  # kgCO2/meal, 2.5kgco2/kg
         "Waste": 0.1  # kgCO2/kg
     }
-     ,"America": {
+     ,"United States": {
         "Transportation": 0.14,  # kgCO2/km
         "Electricity": 0.82,  # kgCO2/kWh
         "Diet": 2,  # kgCO2/meal, 2.5kgco2/kg
@@ -32,7 +32,7 @@ st.title("Personal Carbon Calculator App ⚠️")
 
 # User inputs
 st.subheader("🌍 Your Country")
-country = st.selectbox("Select", ["India", "Unites States"])
+country = st.selectbox("Select", ["India", "United States"])
 
 col1, col2 = st.columns(2)
 
