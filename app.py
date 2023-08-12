@@ -104,6 +104,7 @@ if distance > 0 and electricity > 0 and meals > 0 and waste > 0:
             I travel {distance} kilometers daily and my annual electricity consumption is {electricity} kWh.
             I have {meals} meals per day and I produce {waste} kilograms of waste per week.
             and My country is {country}. Compare my carbon footprint to the average {country} citizen and suggest actionable advise relevant to my country.
+            Make sure to include suggestions in all of the categories and provide a detailed explanation for each suggestion.
             """
 
 
