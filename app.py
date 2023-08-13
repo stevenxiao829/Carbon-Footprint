@@ -120,7 +120,7 @@ if distance > 0 and electricity > 0 and meals > 0 and waste > 0:
             st.warning("Between 1972 and 2021, CO2 emissions per capita of the world grew substantially from 1.3 to 4.8 tons of CO2 per capita rising at an increasing annual rate that reached a maximum of 9.41% in 2021.")
 
         with st.expander("🌲's needed to offset your carbon footprint"):
-            st.info(f"You would need to plant {round((total_emissions * 1000)/21)} trees 🌲 to offset your yearly carbon footprint.")
+            st.info(f"You would need to plant {round((total_emissions * 1000)/20)} trees 🌲 to offset your yearly carbon footprint.")
 
     # Check if all inputs have been filled
         if distance > 0 and electricity > 0 and meals > 0 and waste > 0:
