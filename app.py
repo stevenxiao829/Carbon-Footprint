@@ -1,7 +1,9 @@
 import pprint
 import streamlit as st
 import google.generativeai as palm
+import pandas as pd
 palm.configure(api_key='AIzaSyATRWBWwqP1AYY1gNJEHvKPKSBWorFABv8')
+df = pd.read_csv("datafinal.csv")
 
 models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
 model = models[0].name
@@ -22,17 +24,23 @@ EMISSION_FACTORS = {
         "Diet": 2,  # kgCO2/meal, 2.5kgco2/kg
         "Waste": 0.1  # kgCO2/kg
     }
+     , "Default": {
+        "Transportation": 0.14,  # kgCO2/km
+        "Electricity": 0.82,  # kgCO2/kWh
+        "Diet": 1.25,  # kgCO2/meal, 2.5kgco2/kg
+        "Waste": 0.1  # kgCO2/kg
+    }
 }
 
 # Set wide layout and page name
-st.set_page_config(layout="wide", page_title="Personal Carbon Calculator")
+st.set_page_config(layout="wide", page_title="Personal Carbon Calculator", theme="light")
 
 # Streamlit app code
 st.title("Personal Carbon Calculator App ⚠️")
 
 # User inputs
 st.subheader("🌍 Your Country")
-country = st.selectbox("Select", ["India", "United States"])
+country = st.selectbox("Select", list(df.Area.unique()))
 
 col1, col2 = st.columns(2)
 
@@ -61,10 +69,10 @@ if waste > 0:
     waste = waste * 52  # Convert weekly waste to yearly
 
 # Calculate carbon emissions
-transportation_emissions = EMISSION_FACTORS[country]["Transportation"] * distance
-electricity_emissions = EMISSION_FACTORS[country]["Electricity"] * electricity
-diet_emissions = EMISSION_FACTORS[country]["Diet"] * meals
-waste_emissions = EMISSION_FACTORS[country]["Waste"] * waste
+transportation_emissions = EMISSION_FACTORS["Default"]["Transportation"] * distance
+electricity_emissions = EMISSION_FACTORS["Default"]["Electricity"] * electricity
+diet_emissions = EMISSION_FACTORS["Default"]["Diet"] * meals
+waste_emissions = EMISSION_FACTORS["Default"]["Waste"] * waste
 
 # Convert emissions to tons and round off to 2 decimal points
 transportation_emissions = round(transportation_emissions / 1000, 2)
