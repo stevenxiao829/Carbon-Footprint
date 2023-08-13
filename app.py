@@ -3,7 +3,7 @@ import streamlit as st
 import google.generativeai as palm
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+import plotly.express as px
 palm.configure(api_key='AIzaSyATRWBWwqP1AYY1gNJEHvKPKSBWorFABv8') # need to remove/hide
 df = pd.read_csv("datafinal.csv")
 
@@ -13,7 +13,7 @@ model = models[0].name
 df2 = pd.read_csv("co-emissions-per-capita.csv")
 df3 = df2[df2["Year"] == 2021]
 df3.drop(columns=["Code"])
-fig, ax = plt.subplots()
+fig, ax = px.subplots()
 
 
 # Define emission factors (example values, replace with accurate data)
@@ -97,7 +97,7 @@ if distance > 0 and electricity > 0 and meals > 0 and waste > 0:
         CO2Emissions_Entities = ["Me", country, "World"]
         country_val = df3.query("Entity == @country")["Annual CO₂ emissions (per capita)"]
         world = 4.8
-        fig, ax = plt.subplots()
+        fig, ax = px.subplots()
         CO2Emissions_Entities = ["Me", country, "World"]
         CO2Emissions_Nums = [total_emissions, country_val, world]
         bar_labels = ['red', 'blue', 'orange']
