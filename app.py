@@ -70,7 +70,6 @@ if waste > 0:
 
 # Calculate carbon emissions
 transportation_emissions = EMISSION_FACTORS["Default"]["Transportation"] * distance_yearly
-electricity_emissions = EMISSION_FACTORS["Default"]["Electricity"] * electricity_yearly
 diet_emissions = EMISSION_FACTORS["Default"]["Diet"] * meals_yearly
 waste_emissions = EMISSION_FACTORS["Default"]["Waste"] * waste_yearly
 
@@ -85,7 +84,7 @@ percent_elec_clean = dfCountry.loc[dfCountry['Variable'] == 'Clean', 'Value'].it
 electricity_emissions_coal = electricity_yearly * percent_elec_coal/100 * 1.025
 electricity_emissions_gas = electricity_yearly * percent_elec_gas/100 * 0.443
 electricity_emissions_oil = electricity_yearly * percent_elec_oil/100 * 1.11
-electricity_emissions = electricity_emissions_coal + electricity_emissions_gas + electricity_emissions_oil
+electricity_emissions_yearly = electricity_emissions_coal + electricity_emissions_gas + electricity_emissions_oil
 # source https://www.eia.gov/tools/faqs/faq.php?id=74&t=11
 # 1.025 kg CO2 per kWh for coal
 # 0.443 kg CO2 per kWh for natural gas
