@@ -2,12 +2,18 @@ import pprint
 import streamlit as st
 import google.generativeai as palm
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 palm.configure(api_key='AIzaSyATRWBWwqP1AYY1gNJEHvKPKSBWorFABv8') # need to remove/hide
 df = pd.read_csv("datafinal.csv")
 
 models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
 model = models[0].name
 
+df2 = pd.read_csv("co-emissions-per-capita.csv")
+df3 = df2[df2["Year"] == 2021]
+df3.drop(columns=["Code"])
+fig, ax = plt.subplots()
 
 
 # Define emission factors (example values, replace with accurate data)
@@ -88,7 +94,21 @@ if distance > 0 and electricity > 0 and meals > 0 and waste > 0:
     )
 
     if st.button("Calculate CO2 Emissions"):
+        CO2Emissions_Entities = ["Me", country, "World"]
+        country_val = df3.query("Entity == @country")["Annual CO₂ emissions (per capita)"]
+        world = 4.8
+        fig, ax = plt.subplots()
+        CO2Emissions_Entities = ["Me", country, "World"]
+        CO2Emissions_Nums = [myVal, country_val, world]
+        bar_labels = ['red', 'blue', 'orange']
+        bar_colors = ['tab:red', 'tab:blue', 'tab:orange']
 
+        ax.bar(CO2Emissions_Entities, CO2Emissions_Nums, label=CO2Emissions_Entities, color=bar_colors)
+
+        ax.set_ylabel('Annual CO₂ emissions (per capita in tons)')
+        ax.set_title('Comparing per capita averages')
+        
+        st.pyplot(fig, ax)
         # Display results
         st.header("Results")
 
