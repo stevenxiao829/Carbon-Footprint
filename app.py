@@ -60,19 +60,19 @@ with col2:
 
 # Normalize inputs
 if distance > 0:
-    distance = distance * 365  # Convert daily distance to yearly
+    distance_yearly = distance * 365  # Convert daily distance to yearly
 if electricity > 0:
-    electricity = electricity * 12  # Convert monthly electricity to yearly
+    electricity_yearly = electricity * 12  # Convert monthly electricity to yearly
 if meals > 0:
-    meals = meals * 365  # Convert daily meals to yearly
+    meals_yearly = meals * 365  # Convert daily meals to yearly
 if waste > 0:
-    waste = waste * 52  # Convert weekly waste to yearly
+    waste_yearly = waste * 52  # Convert weekly waste to yearly
 
 # Calculate carbon emissions
-transportation_emissions = EMISSION_FACTORS["Default"]["Transportation"] * distance
-electricity_emissions = EMISSION_FACTORS["Default"]["Electricity"] * electricity
-diet_emissions = EMISSION_FACTORS["Default"]["Diet"] * meals
-waste_emissions = EMISSION_FACTORS["Default"]["Waste"] * waste
+transportation_emissions = EMISSION_FACTORS["Default"]["Transportation"] * distance_yearly
+electricity_emissions = EMISSION_FACTORS["Default"]["Electricity"] * electricity_yearly
+diet_emissions = EMISSION_FACTORS["Default"]["Diet"] * meals_yearly
+waste_emissions = EMISSION_FACTORS["Default"]["Waste"] * waste_yearly
 
 # Convert emissions to tons and round off to 2 decimal points
 transportation_emissions = round(transportation_emissions / 1000, 2)
