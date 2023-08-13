@@ -101,7 +101,7 @@ if distance > 0 and electricity > 0 and meals > 0 and waste > 0:
         world = 4.8
         fig, ax = plt.subplots()
         CO2Emissions_Entities = ["Me", country, "World"]
-        CO2Emissions_Nums = [float(myVal), float(country_val), float(world)]
+        CO2Emissions_Nums = [myVal, country_val, world]
         bar_labels = ['You', f'{country}', 'World']
         bar_colors = ['tab:red', 'tab:blue', 'tab:orange']
         ax.bar(CO2Emissions_Entities, CO2Emissions_Nums, label=CO2Emissions_Entities, color=bar_colors)
