@@ -76,7 +76,21 @@ waste_emissions = EMISSION_FACTORS["Default"]["Waste"] * waste
 
 # Convert emissions to tons and round off to 2 decimal points
 transportation_emissions = round(transportation_emissions / 1000, 2)
-electricity_emissions = round(electricity_emissions / 1000, 2)
+dfCountry = df[df.Area == country]
+dfCountry = dfCountry[dfCountry.Year == dfCountry['Year'].max()]
+percent_elec_coal = dfCountry.loc[dfCountry['Variable'] == 'Coal', 'Value'].item()
+percent_elec_gas = dfCountry.loc[dfCountry['Variable'] == 'Gas', 'Value'].item()
+percent_elec_oil = dfCountry.loc[dfCountry['Variable'] == 'Other Fossil', 'Value'].item()
+percent_elec_clean = dfCountry.loc[dfCountry['Variable'] == 'Clean', 'Value'].item()
+electricity_emissions_coal = electricity * percent_elec_coal/100 * 1.025
+electricity_emissions_gas = electricity * percent_elec_gas/100 * 0.443
+electricity_emissions_oil = electricity * percent_elec_oil/100 * 1.11
+electricity_emissions = electricity_emissions_coal + electricity_emissions_gas + electricity_emissions_oil
+# source https://www.eia.gov/tools/faqs/faq.php?id=74&t=11
+# 1.025 kg CO2 per kWh for coal
+# 0.443 kg CO2 per kWh for natural gas
+# 1.11 kg CO2 per kWh for oil
+
 diet_emissions = round(diet_emissions / 1000, 2)
 waste_emissions = round(waste_emissions / 1000, 2)
 
