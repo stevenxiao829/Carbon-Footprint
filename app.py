@@ -102,7 +102,7 @@ if st.button("Calculate CO2 Emissions"):
     with col4:
         st.subheader("Total Carbon Footprint")
         st.success(f"🌍 Your total carbon footprint is: {total_emissions} tons CO2 per year")
-        st.warning("In 2021, CO2 emissions per capita for India was 1.9 tons of CO2 per capita. Between 1972 and 2021, CO2 emissions per capita of India grew substantially from 0.39 to 1.9 tons of CO2 per capita rising at an increasing annual rate that reached a maximum of 9.41% in 2021")
+        st.warning("Between 1972 and 2021, CO2 emissions per capita of the world grew substantially from 1.3 to 4.8 tons of CO2 per capita rising at an increasing annual rate that reached a maximum of 9.41% in 2021.")
 
 # Check if all inputs have been filled
 if distance > 0 and electricity > 0 and meals > 0 and waste > 0:
@@ -111,7 +111,8 @@ if distance > 0 and electricity > 0 and meals > 0 and waste > 0:
             Provide detailed actionable suggestions to reduce my carbon footprint.
             I travel {distance} kilometers daily and my annual electricity consumption is {electricity} kWh.
             I have {meals} meals per day and I produce {waste} kilograms of waste per week.
-            and My country is {country}. Compare my carbon footprint to the average {country} citizen and suggest actionable advise relevant to my country.
+            My calculated carbon footprint is {total_emissions} tons CO2 per year.
+            My country is {country}. Compare my carbon footprint to the average {country} citizen and suggest actionable advise relevant to my country.
             Make sure to include suggestions in all of the categories and provide a detailed explanation for each suggestion.
             """
 
@@ -121,7 +122,7 @@ if distance > 0 and electricity > 0 and meals > 0 and waste > 0:
         completion = palm.generate_text(
             model=model,
             prompt=prompt,
-            temperature=0.7,  # You can adjust the temperature for more diverse responses
+            temperature=0.1,  # You can adjust the temperature for more diverse responses
             max_output_tokens=1024,  # You can adjust the length of the response
         )
 
