@@ -110,7 +110,7 @@ if distance > 0 and electricity > 0 and meals > 0 and waste > 0:
         with st.expander("🌲's needed to offset your carbon footprint", expanded=True):
             st.info(f""" To offset your yearly carbon footprint, you would need to plant an estimated number of {round((total_emissions * 1000)/20)} trees 🌲.
                     Please do your part to help the environment! 
-                    🌲 visit [link](%s) and help as much as you can! Your contribution makes all the difference!"""%"https://www.trees.org")
+                    🌲 visit [this link](%s) and help as much as you can! Your contribution makes all the difference!"""%"https://www.trees.org")
             
 
     # Check if all inputs have been filled
