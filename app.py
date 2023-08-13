@@ -108,8 +108,8 @@ if distance > 0 and electricity > 0 and meals > 0 and waste > 0:
             st.warning("Between 1972 and 2021, CO2 emissions per capita of the world grew substantially from 1.3 to 4.8 tons of CO2 per capita rising at an increasing annual rate that reached a maximum of 9.41% in 2021.")
 
         with st.expander("🌲's needed to offset your carbon footprint", expanded=True):
-            st.info(f""" To offset your yearly carbon footprint, you would need to plant an estimated number of {round((total_emissions * 1000)/20)} trees 🌲. \n
-                    Please do your part to help the environment! \n
+            st.info(f""" To offset your yearly carbon footprint, you would need to plant an estimated number of {round((total_emissions * 1000)/20)} trees 🌲. 
+                    Please do your part to help the environment! 
                     🌲 visit [this link](%s) and help as much as you can! Your contribution makes all the difference!"""%"https://www.trees.org")
             
 
