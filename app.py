@@ -40,7 +40,7 @@ st.title("Personal Carbon Calculator App ⚠️")
 
 # User inputs
 st.subheader("🌍 Your Country")
-country = st.selectbox("Select", list(df.Area.unique()))
+country = st.selectbox("Select", list(df.Area.unique()), index=203)
 
 col1, col2 = st.columns(2)
 
