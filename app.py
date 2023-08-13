@@ -107,7 +107,7 @@ if distance > 0 and electricity > 0 and meals > 0 and waste > 0:
         ax.bar(CO2Emissions_Entities, CO2Emissions_Nums, label=CO2Emissions_Entities, color=bar_colors)
         ax.set_ylabel('Annual CO₂ emissions (per capita in tons)')
         ax.set_title('Comparing per capita averages')
-        st.pyplot(fig=(fig, ax))
+        st.pyplot(fig=plt.show())
         
         
 
