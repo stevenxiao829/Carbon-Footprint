@@ -1,1 +1,5 @@
 https://data.worldbank.org/indicator/EN.ATM.CO2E.PC
+https://www.scu.edu/media/ethics-center/environmental-ethics/carbon-footprint/Math_and_Methodologies_Behind_This_Calculator.pdf
+https://www.eia.gov/tools/faqs/faq.php?id=74&t=11
+https://www.viessmann.co.uk/en/heating-advice/boilers/how-much-co2-does-tree-absorb.html for 1 tree = 20 kg CO2 per year
+https://8billiontrees.com/carbon-offsets-credits/how-many-trees-to-offset-1-ton-of-co2/#:~:text=To%20offset%20one%20ton%20of,that%20it%20doesn%27t%20matter%E2%80%A6

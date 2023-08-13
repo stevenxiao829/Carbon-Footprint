@@ -24,7 +24,7 @@ EMISSION_FACTORS = {
 st.set_page_config(layout="wide", page_title="Personal Carbon Calculator", page_icon="🌍")
 
 # Set title
-st.title("Carbon Calculator App ⚠️")
+st.title("EcoGuide 🌍")
 
 # input GUI
 st.subheader("🌍 Your Country")
