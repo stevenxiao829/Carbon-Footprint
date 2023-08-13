@@ -11,34 +11,22 @@ model = models[0].name
 
 
 # Define emission factors (example values, replace with accurate data)
+# https://www.scu.edu/media/ethics-center/environmental-ethics/carbon-footprint/Math_and_Methodologies_Behind_This_Calculator.pdf
 EMISSION_FACTORS = {
-    "India": {
-        "Transportation": 0.14,  # kgCO2/km
-        "Electricity": 0.82,  # kgCO2/kWh
-        "Diet": 1.25,  # kgCO2/meal, 2.5kgco2/kg
-        "Waste": 0.1  # kgCO2/kg
-    }
-     ,"United States": {
-        "Transportation": 0.14,  # kgCO2/km
-        "Electricity": 0.82,  # kgCO2/kWh
-        "Diet": 2,  # kgCO2/meal, 2.5kgco2/kg
-        "Waste": 0.1  # kgCO2/kg
-    }
-     , "Default": {
-        "Transportation": 0.14,  # kgCO2/km
-        "Electricity": 0.82,  # kgCO2/kWh
+       "Default": {
+        "Transportation": 0.40935,  # kgCO2/km
         "Diet": 1.25,  # kgCO2/meal, 2.5kgco2/kg
         "Waste": 0.1  # kgCO2/kg
     }
 }
 
-# Set wide layout and page name
+# Set page config
 st.set_page_config(layout="wide", page_title="Personal Carbon Calculator", page_icon="🌍")
 
-# Streamlit app code
-st.title("Personal Carbon Calculator App ⚠️")
+# Set title
+st.title("Carbon Calculator App ⚠️")
 
-# User inputs
+# input GUI
 st.subheader("🌍 Your Country")
 country = st.selectbox("Select", list(df.Area.unique()), index=203)
 
