@@ -116,17 +116,17 @@ if distance > 0 and electricity > 0 and meals > 0 and waste > 0:
             """
 
 
+    with st.spinner("Generating suggestions... You are on your way to make a positive impact on the environment! 🌍"):
+        # Start generating the text
+        completion = palm.generate_text(
+            model=model,
+            prompt=prompt,
+            temperature=0.7,  # You can adjust the temperature for more diverse responses
+            max_output_tokens=1024,  # You can adjust the length of the response
+        )
 
-    # Start generating the text
-    completion = palm.generate_text(
-        model=model,
-        prompt=prompt,
-        temperature=0.7,  # You can adjust the temperature for more diverse responses
-        max_output_tokens=1024,  # You can adjust the length of the response
-    )
-
-    # Update the output container with the generated text
-    st.markdown(completion.result)
+        # Update the output container with the generated text
+        st.markdown(completion.result)
 
 else:
     st.warning("Please fill in all the inputs to generate suggestions.")
