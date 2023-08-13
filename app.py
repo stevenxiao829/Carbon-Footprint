@@ -2,7 +2,7 @@ import pprint
 import streamlit as st
 import google.generativeai as palm
 import pandas as pd
-palm.configure(api_key='AIzaSyATRWBWwqP1AYY1gNJEHvKPKSBWorFABv8')
+palm.configure(api_key='AIzaSyATRWBWwqP1AYY1gNJEHvKPKSBWorFABv8') # need to remove/hide
 df = pd.read_csv("datafinal.csv")
 
 models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
@@ -21,10 +21,10 @@ EMISSION_FACTORS = {
 }
 
 # Set page config
-st.set_page_config(layout="wide", page_title="Personal Carbon Calculator", page_icon="🌍")
+st.set_page_config(layout="wide", page_title="EcoGuide - Carbon Footprint Analysis", page_icon="🌍")
 
 # Set title
-st.title("EcoGuide 🌍")
+st.title("EcoGuide - Carbon Footprint Analysis 🌍")
 
 # input GUI
 st.subheader("🌍 Your Country")
@@ -44,7 +44,7 @@ with col2:
     waste = st.slider("Waste", 0.0, 100.0, key="waste_input")
 
     st.subheader("🍽️ Number of meals per day")
-    meals = st.number_input("Meals", 0, key="meals_input")
+    meals = st.number_input("Meals", 0, key="meals_input", default=3)
 
 # Normalize inputs
 if distance > 0:
