@@ -84,7 +84,7 @@ percent_elec_clean = dfCountry.loc[dfCountry['Variable'] == 'Clean', 'Value'].it
 electricity_emissions_coal = electricity_yearly * percent_elec_coal/100 * 1.025
 electricity_emissions_gas = electricity_yearly * percent_elec_gas/100 * 0.443
 electricity_emissions_oil = electricity_yearly * percent_elec_oil/100 * 1.11
-electricity_emissions_yearly = electricity_emissions_coal + electricity_emissions_gas + electricity_emissions_oil
+electricity_emissions_yearly = round(electricity_emissions_coal + electricity_emissions_gas + electricity_emissions_oil, 2)
 # source https://www.eia.gov/tools/faqs/faq.php?id=74&t=11
 # 1.025 kg CO2 per kWh for coal
 # 0.443 kg CO2 per kWh for natural gas
@@ -112,6 +112,7 @@ if st.button("Calculate CO2 Emissions"):
         st.info(f"🍽️ Diet: {diet_emissions} tons CO2 per year")
         st.info(f"🗑️ Waste: {waste_emissions} tons CO2 per year")
 
+# https://www.tfaforms.com/4666774 for 1 tree = 15.7 kg CO2 per year
     with col4:
         st.subheader("Total Carbon Footprint")
         st.success(f"🌍 Your total carbon footprint is: {total_emissions} tons CO2 per year")
