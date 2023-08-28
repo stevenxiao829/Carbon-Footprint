@@ -92,22 +92,26 @@ if distance > 0 and electricity > 0 and meals > 0 and waste > 0:
     )
 
     if st.button("Calculate CO2 Emissions"):
-        # df2 = pd.read_csv("co-emissions-per-capita.csv")
-        # df3 = df2[df2["Year"] == 2021]
-        # df3.drop(columns=["Code"])
-        # myVal = total_emissions
-        # world = "World"
-        # country_val = df3.query("Entity == @country")["Annual CO₂ emissions (per capita)"]
-        # world = 4.8
-        # fig, ax = plt.subplots()
-        # CO2Emissions_Entities = ["Me", country, "World"]
-        # CO2Emissions_Nums = [myVal, country_val, world]
-        # bar_labels = ['You', f'{country}', 'World']
-        # bar_colors = ['tab:red', 'tab:blue', 'tab:orange']
-        # ax.bar(CO2Emissions_Entities, CO2Emissions_Nums, label=CO2Emissions_Entities, color=bar_colors)
-        # ax.set_ylabel('Annual CO₂ emissions (per capita in tons)')
-        # ax.set_title('Comparing per capita averages')
-        # st.pyplot(fig=plt.show())
+
+        df2 = pd.read_csv("co-emissions-per-capita.csv")
+        df3 = df2[df2["Year"] == 2021]
+        df3.drop(columns=["Code"])
+        # country = "India"
+        myVal = total_emissions
+        world = "World"
+        country_val = df3.query("Entity == @country")["Annual CO₂ emissions (per capita)"]
+        country_val = 15.5
+        world = 4.8
+        fig, ax = plt.subplots()
+
+        CO2Emissions_Entities = ["Me", country, "World"]
+        CO2Emissions_Nums = [myVal, country_val, world]
+        bar_labels = ['You', f'{country}', 'World']
+        bar_colors = ['tab:red', 'tab:blue', 'tab:orange']
+        ax.bar(CO2Emissions_Entities, CO2Emissions_Nums, label=CO2Emissions_Entities, color=bar_colors)
+        ax.set_ylabel('Annual CO₂ emissions (per capita in tons)')
+        ax.set_title('Comparing per capita averages')
+        st.pyplot(fig=plt.show())
         
         
 
